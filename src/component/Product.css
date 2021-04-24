@@ -1,0 +1,14 @@
+.Products{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.Products li{
+    list-style: none;
+    border:1px solid white;
+    display: flex;
+    flex-direction: column ;
+    align-items: center;
+    flex-wrap:wrap;
+
+}
