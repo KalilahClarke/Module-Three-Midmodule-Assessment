@@ -1,24 +1,25 @@
 import React from "react"
 import "./App.css";
-import Checkout from "./component/Checkout";
-import MyGarage from "./component/MyGarage";
-import Cart from "./component/Cart";
+import Checkout from "./Component/Checkout";
+import MyGarage from "./Component/MyGarage";
+import Cart from "./Component/Cart";
 
 
 
 class App extends React.Component {
-  state= {cart:[]}
+  state= {shoppingCart:[]}
   
   addCart = (item) => {
     this.setState((prevState) => {
-      return {cart: [item,...prevState.cart]}
+      return {shoppingCart: [item,...prevState.shoppingCart]}
     })
   }
   render() {
+
     return (
-      <div class="App">
+      <div className="App">
         <MyGarage addCart={this.addCart}/>
-        <Cart/>
+        <Cart shoppingCart={this.state.shoppingCart} />
         <Checkout/> 
       </div>
     );

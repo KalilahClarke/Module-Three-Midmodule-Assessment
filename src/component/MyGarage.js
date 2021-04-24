@@ -1,23 +1,25 @@
+import { render } from "@testing-library/react";
 import React from "react";
 import productData from "../data/productData";
 import Product from "./Product"
+import "./Product.css"
 
 
-class MyGarage extends React.Component {
-
+const MyGarage =({addCart}) => { 
+    const products = productData.map (product =>{
+      return <Product key={product.id} product={product} addCart={addCart}/>
+    })
+    render()
     
-    
-    render() {
-      const ProductInfo = 
-          productData.map(product => <Product name={product.name} price={product.price.toFixed(2)} description={product.description}
-          img={product.img}/>)
+  
       return (
-          <section>
-              <h1>My Garage Sale</h1>
-            {ProductInfo} 
-        
+          <section className="Products">
+              <h1>My Garage Sale</h1> 
+              <ul>
+              {products}
+              </ul>
         </section>
     )
-  }
+  
 }
 export default MyGarage;

@@ -16,11 +16,13 @@ class Checkout extends React.Component {
       if (first === "" || last === "" || zipCode === "" ||email === "") {
         alert("Input is invalid");
       } else if (credit.length !== 16) {
-        alert("Input is invalid Credit Card number is invalid");
-      } else {
+        alert("Input is invalid \nCredit Card number is invalid");
+      } else if(zipCode.length !== 5) {
+        alert ("Input is invalid \nZip Code is not Valid")
+      }else {
         // number and average are underfined currently
-        alert(
-          `You are now the teacher. You have (number) students. The Average GPA is (average)}`
+        alert( 
+          `Yay Purchase Complete. \nYou will be charged $(money).`
         );
       }
     };
@@ -33,7 +35,7 @@ class Checkout extends React.Component {
       const { first, last, email, credit, zipCode} = this.state;
       // console.log(this.state);
       return (
-        <section>
+        <section className="form">
           <h1>Checkout</h1>
           <form onSubmit={this.handleSubmit}>
             <label>
